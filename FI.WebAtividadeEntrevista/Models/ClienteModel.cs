@@ -65,6 +65,8 @@ namespace WebAtividadeEntrevista.Models
         /// <summary>
         /// Telefone
         /// </summary>
+        /// 
+        public string CPF { get; set;}
         public string Telefone { get; set; }
 
     }    

@@ -11,6 +11,8 @@ namespace FI.AtividadeEntrevista.DML
     /// </summary>
     public class Cliente
     {
+        public string CPF;
+
         /// <summary>
         /// Id
         /// </summary>
@@ -50,6 +52,11 @@ namespace FI.AtividadeEntrevista.DML
         /// Nome
         /// </summary>
         public string Nome { get; set; }
+
+        /// <summary>
+        /// Cpf
+        /// </summary>
+        public string Cpf { get; set; }
 
         /// <summary>
         /// Sobrenome
