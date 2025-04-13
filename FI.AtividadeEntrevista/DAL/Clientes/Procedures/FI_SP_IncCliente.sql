@@ -1,13 +1,13 @@
 ﻿CREATE PROC FI_SP_IncClienteV2
     @NOME          VARCHAR (50) ,
     @SOBRENOME     VARCHAR (255),
-    @CPF           VARCHAR (11),
+    @CPF           VARCHAR (14),
     @NACIONALIDADE VARCHAR (50) ,
     @CEP           VARCHAR (9)  ,
     @ESTADO        VARCHAR (2)  ,
     @CIDADE        VARCHAR (50) ,
     @LOGRADOURO    VARCHAR (500),
-    @EMAIL         VARCHAR (2079),
+    @EMAIL         VARCHAR (500),
     @TELEFONE      VARCHAR (15)
 AS
 BEGIN

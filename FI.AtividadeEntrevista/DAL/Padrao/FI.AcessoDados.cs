@@ -40,7 +40,7 @@ namespace FI.AtividadeEntrevista.DAL
             }
         }
 
-        internal DataSet Consultar(string NomeProcedure, List<SqlParameter> parametros)
+        internal DataSet Consultar(string NomeProcedure, List<SqlParameter> parametros, SqlDataAdapter adapter)
         {
             SqlCommand comando = new SqlCommand();
             SqlConnection conexao = new SqlConnection(stringDeConexao);
@@ -51,13 +51,13 @@ namespace FI.AtividadeEntrevista.DAL
             foreach (var item in parametros)
                 comando.Parameters.Add(item);
 
-            SqlDataAdapter adapter = new SqlDataAdapter(comando);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(comando);
             DataSet ds = new DataSet();
             conexao.Open();
 
             try
             {
-                adapter.Fill(ds);
+                dataAdapter.Fill(ds);
             }
             finally
             {
