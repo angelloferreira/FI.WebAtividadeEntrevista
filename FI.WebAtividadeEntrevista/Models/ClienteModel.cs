@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using FI.AtividadeEntrevista.DML; // ← Certifique-se de importar seu namespace de Beneficiario
 
 namespace WebAtividadeEntrevista.Models
 {
@@ -12,62 +13,61 @@ namespace WebAtividadeEntrevista.Models
     public class ClienteModel
     {
         public long Id { get; set; }
-        
-        /// <summary>
-        /// CEP
-        /// </summary>
+
         [Required]
         public string CEP { get; set; }
 
-        /// <summary>
-        /// Cidade
-        /// </summary>
         [Required]
         public string Cidade { get; set; }
 
-        /// <summary>
-        /// E-mail
-        /// </summary>
         [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", ErrorMessage = "Digite um e-mail válido")]
         public string Email { get; set; }
 
-        /// <summary>
-        /// Estado
-        /// </summary>
         [Required]
         [MaxLength(2)]
         public string Estado { get; set; }
 
-        /// <summary>
-        /// Logradouro
-        /// </summary>
         [Required]
         public string Logradouro { get; set; }
 
-        /// <summary>
-        /// Nacionalidade
-        /// </summary>
         [Required]
         public string Nacionalidade { get; set; }
 
-        /// <summary>
-        /// Nome
-        /// </summary>
         [Required]
         public string Nome { get; set; }
 
-        /// <summary>
-        /// Sobrenome
-        /// </summary>
         [Required]
         public string Sobrenome { get; set; }
 
-        /// <summary>
-        /// Telefone
-        /// </summary>
-        /// 
-        public string CPF { get; set;}
+        [Required]
+        public string CPF { get; set; }
+
         public string Telefone { get; set; }
 
-    }    
+        /// <summary>
+        /// Beneficiários em formato JSON (vindo do JavaScript)
+        /// </summary>
+        public string BeneficiariosJson { get; set; } // ← Adicionado
+
+        /// <summary>
+        /// Lista de Beneficiários deserializada (para uso interno)
+        /// </summary>
+        public List<Beneficiario> Beneficiarios // ← Opcional: já retorna a lista pronta
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(BeneficiariosJson))
+                    return new List<Beneficiario>();
+
+                try
+                {
+                    return Newtonsoft.Json.JsonConvert.DeserializeObject<List<Beneficiario>>(BeneficiariosJson);
+                }
+                catch
+                {
+                    return new List<Beneficiario>();
+                }
+            }
+        }
+    }
 }

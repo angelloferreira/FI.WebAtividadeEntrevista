@@ -42,9 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\BoBeneficiario.cs" />
     <Compile Include="BLL\BoCliente.cs" />
+    <Compile Include="DAL\Beneficiario\DaoBeneficiario.cs" />
+    <Content Include="DAL\Beneficiario\Procedures\FI_SP_ConsBeneficiariosCliente.sql" />
+    <Content Include="DAL\Beneficiario\Procedures\FI_SP_DelBeneficiario.sql" />
+    <Content Include="DAL\Beneficiario\Procedures\FI_SP_IncBeneficiario.sql" />
     <Compile Include="DAL\Clientes\DaoCliente.cs" />
     <Compile Include="DAL\Padrao\FI.AcessoDados.cs" />
+    <Compile Include="DML\Beneficiario.cs" />
     <Compile Include="DML\Cliente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
