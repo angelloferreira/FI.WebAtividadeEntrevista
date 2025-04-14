@@ -29,7 +29,7 @@ namespace FI.AtividadeEntrevista.DAL
             parametros.Add(new System.Data.SqlClient.SqlParameter("Email", cliente.Email));
             parametros.Add(new System.Data.SqlClient.SqlParameter("Telefone", cliente.Telefone));
 
-            DataSet ds = base.Consultar("FI_SP_IncClienteV2", parametros, adapter);
+            DataSet ds = base.Consultar("FI_SP_IncClienteV2", parametros);
             long ret = 0;
             if (ds.Tables[0].Rows.Count > 0)
                 long.TryParse(ds.Tables[0].Rows[0][0].ToString(), out ret);
@@ -46,7 +46,7 @@ namespace FI.AtividadeEntrevista.DAL
 
             parametros.Add(new System.Data.SqlClient.SqlParameter("Id", Id));
 
-            DataSet ds = base.Consultar("FI_SP_ConsCliente", parametros, adapter);
+            DataSet ds = base.Consultar("FI_SP_ConsCliente", parametros);
             List<DML.Cliente> cli = Converter(ds);
 
             return cli.FirstOrDefault();
@@ -58,7 +58,7 @@ namespace FI.AtividadeEntrevista.DAL
 
             parametros.Add(new System.Data.SqlClient.SqlParameter("CPF", CPF));
 
-            DataSet ds = base.Consultar("FI_SP_VerificaCliente", parametros, adapter);
+            DataSet ds = base.Consultar("FI_SP_VerificaCliente", parametros);
 
             return ds.Tables[0].Rows.Count > 0;
         }
@@ -72,7 +72,7 @@ namespace FI.AtividadeEntrevista.DAL
             parametros.Add(new System.Data.SqlClient.SqlParameter("campoOrdenacao", campoOrdenacao));
             parametros.Add(new System.Data.SqlClient.SqlParameter("crescente", crescente));
 
-            DataSet ds = base.Consultar("FI_SP_PesqCliente", parametros, adapter);
+            DataSet ds = base.Consultar("FI_SP_PesqCliente", parametros);
             List<DML.Cliente> cli = Converter(ds);
 
             int iQtd = 0;
@@ -94,7 +94,7 @@ namespace FI.AtividadeEntrevista.DAL
 
             parametros.Add(new System.Data.SqlClient.SqlParameter("Id", 0));
 
-            DataSet ds = base.Consultar("FI_SP_ConsCliente", parametros, adapter);
+            DataSet ds = base.Consultar("FI_SP_ConsCliente", parametros);
             List<DML.Cliente> cli = Converter(ds);
 
             return cli;

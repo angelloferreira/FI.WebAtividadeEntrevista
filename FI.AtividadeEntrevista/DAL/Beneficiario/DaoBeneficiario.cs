@@ -17,7 +17,7 @@ namespace FI.AtividadeEntrevista.DAL
                 new SqlParameter("IdCliente", beneficiario.IdCliente)
             };
 
-            DataSet ds = base.Consultar("FI_SP_IncBeneficiario", parametros, adapter);
+            DataSet ds = base.Consultar("FI_SP_IncBeneficiario", parametros);
 
             long id = 0;
             if (ds.Tables[0].Rows.Count > 0)
@@ -43,7 +43,7 @@ namespace FI.AtividadeEntrevista.DAL
                 new SqlParameter("IdCliente", idCliente)
             };
 
-            DataSet ds = base.Consultar("FI_SP_ConsBeneficiariosCliente", parametros, adapter);
+            DataSet ds = base.Consultar("FI_SP_ConsBeneficiariosCliente", parametros);
             return Converter(ds);
         }
 

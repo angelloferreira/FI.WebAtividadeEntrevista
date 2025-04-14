@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -67,5 +68,14 @@ namespace FI.AtividadeEntrevista.DAL
             return ds;
         }
 
+        internal DataSet Consultar(string v, List<SqlParameter> parametros, object adapter)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal DataSet Consultar(string v, List<SqlParameter> parametros)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
